@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hala madrid</title>
+    <style>
+        /* Контейнер слайдера */
+        .slider {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        /* Скрываем все изображения по умолчанию */
+        .slides {
+            display: none;
+        }
+
+        /* Стиль для изображения */
+        .slider img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Кнопки перехода */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            padding: 16px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            user-select: none;
+            border: none;
+        }
+
+        .prev {
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .next {
+            right: 0;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Слайдер -->
+<div class="slider">
+    <div class="slides">
+       <img src="file:///C:/hala madrid.jpg" alt="Image 1">
+
+
+    <!-- Кнопки для переключения -->
+    <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+    <button class="next" onclick="plusSlides(1)">&#10095;</button>
+</div>
+
+<script>
+    let slideIndex = 0;
+
+    function showSlides() {
+        let slides = document.querySelectorAll('.slides');
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 3000); // смена слайдов каждые 3 секунды
+    }
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    showSlides(slideIndex); // Инициализация слайдера
+</script>
+
+</body>
+</html>
